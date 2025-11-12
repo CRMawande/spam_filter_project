@@ -15,6 +15,7 @@ The primary objective is to create a filter that is interpretable and tunable, p
 The repository follows a modular, standardized layout for reproducibility and clarity.
 
 ![alt text](image.png)
+
  ---
 
 ## 3. Setup and Installation
@@ -25,14 +26,14 @@ You will need Python (3.9+) and the following libraries:
 ```bash
 pip install -r requirements.txt
 
-Cloning the Repository
+### **Cloning the Repository**
 Clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/CRMawande/spam_filter_project.git
 cd spam_filter_project
- ---
-## 4. Data Preparation Steps
+
+## **4. Data Preparation Steps**
 The data is processed using a custom NLP pipeline to retain key features, including numeric tokens:
 
 - **Cleaning** (`spam_filter_project/data_processing.py`): Removes duplicates and applies a regex filter to remove stop words and punctuation while retaining numeric tokens (e.g., '1000', '0800').
@@ -40,7 +41,6 @@ The data is processed using a custom NLP pipeline to retain key features, includ
   - **Count Matrix**: Used for the optimal MNB model.
   - **TF-IDF Matrix**: Used for comparison models (Logistic Regression, Linear SVC, Complement Naive Bayes).
   - **Scaling**: `message_length` is scaled using MinMax Scaling.
-   ---
 
 ## 5. Model Selection and Results
 ### Final Model and Metrics
@@ -55,7 +55,6 @@ The deployment uses the MNB model's probability score ($ \mathbf{P}(\text{spam})
 |----------------------|--------------------------------|--------------------|
 | **Immediate Display**| $ \mathbf{P}(\text{spam}) < 1.0000 $ | **Low-Risk (FP-Free)**. Guarantees genuine customer feedback is never wrongly blocked. |
 | **Quarantine Folder**| $ \mathbf{P}(\text{spam}) \geq 1.0000 $ | **High-Risk**. Captures only messages the model is 100% certain are spam, minimizing manual review time. |
- ---
 
 ## 6. Running the Application
 To run the interactive demonstration and test adjustable thresholds:
@@ -66,7 +65,6 @@ streamlit run spam_filter_project/deployment.py
 - Use the slider to adjust risk thresholds dynamically.
 - Enter a message to see real-time classification.
 - The system visualizes how changing thresholds affects spam detection probability.
- ---
 
 ## 7. Deployment Notes
 
@@ -75,7 +73,6 @@ streamlit run spam_filter_project/deployment.py
 - GUI is simple, interpretable, and allows the service team to control spam-risk levels efficiently.
 
 ![alt text](image-2.png)   ![alt text](image-3.png)
- ---
 
 ## 8. Future Work
 
