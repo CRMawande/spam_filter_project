@@ -21,17 +21,20 @@ The repository follows a modular, standardized layout for reproducibility and cl
 ## 3. Setup and Installation
 
 ### Prerequisites
-You will need Python (3.9+) and the following libraries:
+- Install Python (3.9+):
+- Install libriaries:
 
 ```bash
 pip install -r requirements.txt
+```
 
-### **Cloning the Repository**
-Clone the repository to your local machine:
+### Cloning the Repository
 
 ```bash
 git clone https://github.com/CRMawande/spam_filter_project.git
 cd spam_filter_project
+```
+ ---
 
 ## **4. Data Preparation Steps**
 The data is processed using a custom NLP pipeline to retain key features, including numeric tokens:
@@ -41,6 +44,7 @@ The data is processed using a custom NLP pipeline to retain key features, includ
   - **Count Matrix**: Used for the optimal MNB model.
   - **TF-IDF Matrix**: Used for comparison models (Logistic Regression, Linear SVC, Complement Naive Bayes).
   - **Scaling**: `message_length` is scaled using MinMax Scaling.
+ ---
 
 ## 5. Model Selection and Results
 ### Final Model and Metrics
@@ -49,22 +53,26 @@ The **Multinomial Naive Bayes (MNB)** model was selected after comparing perform
 ![alt text](image-1.png)
 
 ## Adjustable Risk Strategy
-The deployment uses the MNB model's probability score ($ \mathbf{P}(\text{spam}) $) to create two risk channels:
+The deployment uses the MNB model's probability score P(spam) to create two risk channels:
 
 | Channel              | Classification Logic           | Business Rationale |
 |----------------------|--------------------------------|--------------------|
-| **Immediate Display**| $ \mathbf{P}(\text{spam}) < 1.0000 $ | **Low-Risk (FP-Free)**. Guarantees genuine customer feedback is never wrongly blocked. |
-| **Quarantine Folder**| $ \mathbf{P}(\text{spam}) \geq 1.0000 $ | **High-Risk**. Captures only messages the model is 100% certain are spam, minimizing manual review time. |
+| **Immediate Display**| P(spam) < 1.00 | **Low-Risk (FP-Free)**. Guarantees genuine customer feedback is never wrongly blocked. |
+| **Quarantine Folder**| P(spam) ≥ 1.00 | **High-Risk**. Captures only messages the model is 100% certain are spam, minimizing manual review time. |
+
+ ---
 
 ## 6. Running the Application
 To run the interactive demonstration and test adjustable thresholds:
 
 ```bash
 streamlit run spam_filter_project/deployment.py
+```
 
 - Use the slider to adjust risk thresholds dynamically.
 - Enter a message to see real-time classification.
 - The system visualizes how changing thresholds affects spam detection probability.
+ ---
 
 ## 7. Deployment Notes
 
@@ -74,6 +82,8 @@ streamlit run spam_filter_project/deployment.py
 
 ![alt text](image-2.png)   ![alt text](image-3.png)
 
+ ---
+ 
 ## 8. Future Work
 
 - Implement a Continuous Learning loop by incorporating False Negatives from quarantine review into training data.
@@ -83,3 +93,5 @@ streamlit run spam_filter_project/deployment.py
 - Explore resampling techniques (e.g., SMOTE) or class weighting to address class imbalance.
 - Enhance feature engineering with lemmatization and character n-grams to capture misspellings.
 - Continuously evaluate thresholds to maintain a balance between Precision and Recall.
+
+ ---
