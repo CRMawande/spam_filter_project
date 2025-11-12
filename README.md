@@ -5,9 +5,9 @@
 This project develops a binary classification model to serve as an adjustable-risk spam filter for a customer-facing communication channel.  
 The primary objective is to create a filter that is interpretable and tunable, prioritizing the minimization of False Positives (FPs) to prevent customer churn.
 
-**Chosen Model:** Multinomial Naive Bayes (MNB)  
-**Key Achievement:** Implementation of an Adjustable Risk Threshold (T = 1.0000) guaranteeing a 100% False Positive-Free channel.  
-**Methodology:** CRISP-DM (Cross-Industry Standard Process for Data Mining)
+- **Chosen Model:** Multinomial Naive Bayes (MNB)  
+- **Key Achievement:** Implementation of an Adjustable Risk Threshold (T = 1.0000) guaranteeing a 100% False Positive-Free channel.  
+- **Methodology:** CRISP-DM (Cross-Industry Standard Process for Data Mining)
  ---
 
 ## 2. Repository Structure
